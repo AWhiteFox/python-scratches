@@ -10,5 +10,9 @@ ydl_opts = {
 }
 
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-    ydl.download([input("Pass a link to video: ")])
-    print("Complete!", end="\n\n")
+    while True:
+        try:
+            ydl.download([input("Pass a link to the video: ")])
+            print("Complete!", end="\n\n")
+        except youtube_dl.utils.DownloadError:
+            pass
